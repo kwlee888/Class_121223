@@ -4,16 +4,19 @@ from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
 from PyQt5 import uic
 
-form_class = uic.loadUiType("UI_test001.ui")[0]
+import googletrans
 
-class MyWindow(QMainWindow, form_class):
+form_class = uic.loadUiType("UI_test002.ui")[0]
+
+class MyGoogleTrans(QMainWindow, form_class):
     def __init__(self):
         super().__init__()
 
         self.setupUi(self)
 
-        self.setWindowTitle("연습 프로그램 1.0")
+        self.setWindowTitle("Google 번역기 1.0")
         self.setWindowIcon(QIcon("..\icon\google.png"))
+        self.statusBar().showMessage("Google Translator Apps v1.0 copyright 2023")
 
         self.pushButton.clicked.connect(self.btnClick)
         self.clearbutton.clicked.connect(self.ClearClick)
@@ -28,3 +31,4 @@ app = QApplication(sys.argv)
 myProgram = MyWindow()
 myProgram.show()
 app.exec_()
+
